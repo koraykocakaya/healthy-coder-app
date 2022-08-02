@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledOnOs;
 import org.junit.jupiter.api.condition.OS;
@@ -21,7 +22,6 @@ import org.junit.jupiter.api.condition.OS;
 public class Test08Disabled {
 
 	@Test
-	@Disabled
 	public void should_ReturnNull_When_CoderListEmpty() {
 		
 		// given

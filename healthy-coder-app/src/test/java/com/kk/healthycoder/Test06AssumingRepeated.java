@@ -25,7 +25,7 @@ public class Test06AssumingRepeated {
 		this.dietPlanner = new DietPlanner(40, 40, 20);
 	}
 
-	@RepeatedTest (value = 5)
+	@RepeatedTest (value = 5, name = RepeatedTest.LONG_DISPLAY_NAME)
 	void should_ReturnCorrectDietPlan_When_CorrectCoder() {
 		
 		// given
