@@ -8,17 +8,22 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 /**
  * 1. Farklı metotlari ya da farkli testleri gruplama ihhtiyacimiz olabilir
  * 2. Bunun icin bir Inner class yaratip bunun @Nested ile isaretlersek inner class adlarina gore testler gruplanacaktir 
+ *  @Nested inner class oldugu icin static tanimlanamaz, bu yuzden @BeforeAll icin classta lifecycle'i @TestInstance(Lifecycle.PER_CLASS) yapmamiz gerekmekte
  * 3. Bununla birlikte classlara veya metotlara @DisplayName annotationu ile testi calistirdigimizda ne sekilde gorunecegini belirtebilmekteyiz
  * 4. Ek olarak tum sinif icin DisplayNameGenerator uzerinden de verilebilmektedir standart bir displayName verilebilmektedir
+ * 5. Nested classlardaki testler top levedaki classtaki testlerden sonra calisacaktir
  * @author korayk
  */
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -26,7 +31,14 @@ public class Test07NestedDisplay {
 
 	
 	@Nested
+	@TestInstance(Lifecycle.PER_CLASS)
 	class IsRecommendedTest{
+		
+		@BeforeAll
+		void beforeAll() {
+			System.out.println("IsRecommendedTest beforeall");
+		} 
+		
 		@Test
 		void should_ReturnTrue_When_DietRecommended() {
 			// given
