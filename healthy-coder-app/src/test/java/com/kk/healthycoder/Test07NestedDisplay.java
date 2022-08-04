@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -16,8 +18,10 @@ import org.junit.jupiter.api.Test;
  * 1. Farklı metotlari ya da farkli testleri gruplama ihhtiyacimiz olabilir
  * 2. Bunun icin bir Inner class yaratip bunun @Nested ile isaretlersek inner class adlarina gore testler gruplanacaktir 
  * 3. Bununla birlikte classlara veya metotlara @DisplayName annotationu ile testi calistirdigimizda ne sekilde gorunecegini belirtebilmekteyiz
+ * 4. Ek olarak tum sinif icin DisplayNameGenerator uzerinden de verilebilmektedir standart bir displayName verilebilmektedir
  * @author korayk
  */
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class Test07NestedDisplay {
 
 	
