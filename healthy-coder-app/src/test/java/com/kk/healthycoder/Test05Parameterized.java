@@ -23,14 +23,14 @@ import org.junit.jupiter.params.provider.ValueSource;
  * 3. @CsvSource icin virgul ile parametreler verilebilmektedir, 
  * 4. Ayrica yorum olmasi acisindan @ParameterizedTest name verilerek testin hangi inputlarla calistirildigi goruntulenebilmektedir
  * 5. @CsvSource gibi direkt Csv filedan (@CsvFileSource) alabilecegimiz yontemler de bulunmaktadir
- * 6. Parametre olarak null veya Empty gecmek icin @NullSource ve @EmptySource annotatinolari kullanmamiz gerekmektedir 
+ * 6. Parametre olarak null veya Empty gecmek icin @NullSource ve @EmptySource annotationlari kullanmamiz gerekmektedir 
  *  (Bunlar diger sourcelarla birlikte de kullanilabilmektedir)
  * 7. Tek parametre alan metotlarda direkt @ValueSource ile birlikte @EnumSource ile de verilebilmektedir
  * 8. @CsvSource icin delimeter parametresi ile input degerlerini nasil ayiracagimiz belirtilebilmektedir
  * 9. Ayrica Source icin @MethodSource annotationu ile metotun return ettikleri kontrol edecek sekilde donulebilmektedir
- * 10. Aslinda her bir parametre testte ArgumentAccessor parametresi uzerindne islem yapilmaktadir, 
+ * 10. Aslinda her bir parametre testte ArgumentAccessor parametresi uzerinden islem yapilmaktadir, 
  *  conversion ile vs. ugrasmamak adina direkt accessor uzerinden veriler uzerinde islem yapilabilmektedir 
- * 11. Ozellikle complex objeler icin Acccessor ile ugrasmamak adina Custom Aggreagator tanimlayarak direkt parametre olarak model gecebiliriz
+ * 11. Ozellikle complex objeler icin Acccessor ile ugrasmamak adina Custom Aggregator tanimlayarak direkt parametre olarak model gecebiliriz
  * @author korayk
  */
 public class Test05Parameterized {
@@ -90,7 +90,7 @@ public class Test05Parameterized {
 	}
 	
 	@ParameterizedTest
-	@CsvSource({"Koray, Kocakaya, 30", "Mehmet, Koca, 25"})
+	@CsvSource({"Koray,Kocakaya,30", "Mehmet,Koca,25"})
 	void testCustomAggregatorAccessor(@AggregateWith(UserAggregator.class) User user){
 		
 		System.out.println("Age is: " + user.getAge() + ", name is: " + user.getName() + ", surname is: " + user.getSurname());

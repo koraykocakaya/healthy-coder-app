@@ -29,6 +29,10 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class Test07NestedDisplay {
 
+	@Test
+	void topLevelClassTest() {
+		System.out.println("Top level ilk calisacakir");
+	}
 	
 	@Nested
 	@TestInstance(Lifecycle.PER_CLASS)
